@@ -45,9 +45,9 @@ coordinator:
 
   # Uncomment the lines below to use a custom set of extra startup parameters for the coordinator.
   extraStartParams: >-
-    -Ddremio.log.path=/opt/dremio/data/log
-    -XX:HeapDumpPath=/opt/dremio/data
-    -XX:ErrorFile=/opt/dremio/data/hs_err_pid%p.log  
+    -Ddremio.log.path=/opt/dremio/coordinator/log/
+    -XX:HeapDumpPath=/opt/dremio/coordinator/data
+    -XX:ErrorFile=/opt/dremio/coordinator/data/hs_err_pid%p.log  
 
   # Extra Volumes
   # Uncomment below to use a custom set of extra volumes for the coordinator.
@@ -55,7 +55,7 @@ coordinator:
 
   # Extra Volume Mounts
   # Uncomment below to use a custom set of extra volume mounts for the coordinator.
-  extraVolumeMounts: ["/opt/dremio/data/"]
+  extraVolumeMounts: ["/opt/dremio"]
 
   # Extra Environment Variables
   # Uncomment below to add extra environment variables for the coordinator.
@@ -143,9 +143,9 @@ executor:
 
   # Uncomment the lines below to use a custom set of extra startup parameters for executors.
   extraStartParams: >-
-    -Ddremio.log.path=/opt/dremio/data/log
-    -XX:HeapDumpPath=/opt/dremio/data
-    -XX:ErrorFile=/opt/dremio/data/hs_err_pid%p.log  
+    -Ddremio.log.path=/opt/dremio/executor/log/
+    -XX:HeapDumpPath=/opt/dremio/executor/java_errors/
+    -XX:ErrorFile=/opt/dremio/executor/java_errors/hs_err_pid%p.log  
 
   # Extra Volumes
   # Uncomment below to use a custom set of extra volumes for the coordinator.
@@ -153,7 +153,7 @@ executor:
 
   # Extra Volume Mounts
   # Uncomment below to use a custom set of extra volume mounts for the coordinator.
-  extraVolumeMounts: ["/opt/dremio/data/"]
+  extraVolumeMounts: ["/opt/dremio/"]
 
   # Extra Environment Variables
   # Uncomment below to add extra environment variables for the executors.
@@ -250,7 +250,7 @@ extraVolumes: ["/volume1/dremio-lab/"]
 
 # Extra Volume Mounts
 # Array to add extra volume mounts to all Dremio resources, normally used in conjunction wtih extraVolumes.
-extraVolumeMounts: ["/opt/dremio/data/"]
+extraVolumeMounts: ["/opt/dremio/"]
 
 # Extra Environment Variables
 # Array to add extra environment variables to Dremio's pods
